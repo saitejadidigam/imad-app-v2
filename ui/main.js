@@ -2,7 +2,7 @@
 var button=document.getElementById('counter');
 button.onclick=function(){
     //make a request to the counter end point
-    var request=new XMLHttprequest();
+    var request=new XMLHttpRequest();
     
     
     //capture the response and store it in a variable
