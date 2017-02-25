@@ -1,10 +1,21 @@
 
 var button=document.getElementById('counter');
-
-var counter=0;
 button.onclick=function(){
-  counter=counter+1;
-  var span=document.getElementById('count');
+    //make a request to the counter end point
+    var request=new XMLHttprequest();
+    
+    
+    //capture the response and store it in a variable
+    request.onreadystatechange=function(){
+    if(request.readystate==XMLHttpRequest.DONE)  {
+      if(request.response==200){
+          var counter=request.responseText;
+          var span=document.getElementById('count');
   span.innerHTML=counter.toString();
-  
+      }  
+        
+    }  
+    };
+    request.open('GET','http://http://saitejadidigam.imad.hasura-app.io/');
+    request.send(null);
 };
